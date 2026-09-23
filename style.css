@@ -1,0 +1,379 @@
+
+/* =========================================================
+   MUTINTA JEWELLERY — DESIGN 03
+   Palette: Midnight Navy / Indigo / Champagne Gold / Ivory
+   ========================================================= */
+
+/* ---------- 01. RESET & TOKENS ---------- */
+:root{
+  --navy:#071329;
+  --navy-2:#0d1c3b;
+  --indigo:#202b56;
+  --gold:#b78332;
+  --gold-soft:#c99a45;
+  --ivory:#f5f1e8;
+  --white:#fffdf8;
+  --muted:#b9bfd0;
+  --line:rgba(255,255,255,.16);
+  --dark-line:rgba(7,19,41,.14);
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:Inter,Arial,Helvetica,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --max:1400px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--navy);
+  color:var(--white);
+  font-family:var(--sans);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+::selection{background:var(--gold);color:var(--navy)}
+
+.container{width:min(calc(100% - 48px),var(--max));margin:auto}
+.section{padding:clamp(80px,10vw,160px) 0}
+.eyebrow{
+  display:flex;align-items:center;gap:14px;
+  font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--gold-soft)
+}
+.eyebrow::before{content:"";width:42px;height:1px;background:var(--gold)}
+.display{
+  font-family:var(--serif);
+  font-weight:400;
+  letter-spacing:-.055em;
+  line-height:.9;
+}
+.gold{color:var(--gold-soft)}
+.muted{color:var(--muted)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.is-visible{opacity:1;transform:none}
+
+/* ---------- 02. TOP BAR ---------- */
+.topbar{
+  min-height:38px;
+  display:flex;align-items:center;
+  background:#040b18;
+  border-bottom:1px solid var(--line);
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:#d7dbea; 
+ 
+}
+.topbar .container{display:flex;justify-content:space-between;gap:20px}
+.topbar-links{display:flex;gap:22px} 
+
+/* ---------- 03. HEADER ---------- */
+.site-header{
+  position:absolute;z-index:20;top:38px;left:0;right:0;
+  border-bottom:1px solid rgba(255,255,255,.1);
+  background:linear-gradient(to bottom,rgba(4,11,24,.35),transparent);
+}
+.nav{
+  min-height:96px;
+  display:flex;align-items:center;justify-content:space-between;gap:30px;
+}
+.brand{display:flex;align-items:center;gap:14px;min-width:250px}
+.brand-logo{
+  width:64px;height:64px;object-fit:contain;
+  filter:drop-shadow(0 6px 18px rgba(0,0,0,.18));
+}
+.brand-name{font-size:22px;letter-spacing:.18em;font-weight:600}
+.brand-sub{font-size:9px;letter-spacing:.25em;color:#c9cdd9;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:34px;font-size:12px;letter-spacing:.15em;text-transform:uppercase}
+.nav-links a{position:relative;padding:8px 0;color:#f4f2eb}
+.nav-links a::after{
+  content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;
+  background:var(--gold);transition:right .35s var(--ease)
+}
+.nav-links a:hover::after,.nav-links a.active::after{right:0}
+.nav-cta,.button{
+  display:inline-flex;align-items:center;justify-content:center;gap:16px;
+  min-height:52px;padding:0 25px;
+  background:var(--gold);color:#071329;
+  border:1px solid var(--gold);
+  text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:700;
+  transition:transform .3s var(--ease),background .3s ease,color .3s ease;
+}
+.nav-cta:hover,.button:hover{transform:translateY(-3px);background:var(--gold-soft)}
+.button.ghost{
+  background:transparent;color:var(--white);border-color:rgba(255,255,255,.5)
+}
+.button.ghost:hover{background:rgba(255,255,255,.08)}
+.menu-btn{display:none;background:none;border:0;color:white;font-size:26px}
+
+/* ---------- 04. HERO ---------- */
+.hero{
+  min-height:92svh;
+  position:relative;
+  display:flex;align-items:flex-end;
+  overflow:hidden;
+  background:#070f22;
+}
+.hero-media{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(90deg,rgba(5,13,29,.96) 0%,rgba(7,16,36,.78) 33%,rgba(7,16,36,.12) 75%,rgba(7,16,36,.2)),
+    linear-gradient(0deg,rgba(5,13,29,.65),transparent 45%),
+    url("assets/hero.jpg");
+  /* Keep the source artwork visible instead of forcing an aggressive full-screen crop. */
+  background-size:auto 100%;
+  background-repeat:no-repeat;
+  background-position:right center;
+  background-color:#071329;
+  transform:scale(1.01);
+  animation:heroZoom 16s ease-out forwards;
+}
+@keyframes heroZoom{to{transform:scale(1)}}
+.hero-inner{
+  position:relative;
+  z-index:2;
+ width: min(calc(100% - 72px), 1440px);
+  margin:0 auto;
+  padding:145px 0 86px;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) minmax(250px, 360px);
+  gap:clamp(45px,6vw,95px);
+  align-items:end;
+}
+.hero h1{
+  font-size:clamp(58px,7.6vw,132px);
+  max-width:860px;
+  text-wrap:balance;
+  margin-top: 30px;
+}
+.hero-copy{
+  max-width:600px;
+  margin-top:34px;
+  font-size:clamp(15px,1.15vw,17px);
+  color:#d5d9e3;
+}
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:34px;
+}
+.hero-side{
+  justify-self:end;
+  width:min(100%, 330px);
+  max-width:330px;
+  border-left:1px solid rgba(240,210,154,.55);
+  padding-left:28px;
+}
+.hero-side h3{font-family:var(--serif);font-size:32px;font-weight:400;line-height:1.05}
+.hero-side p{margin-top:18px;color:#c6cad6;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.hero-bottom{
+  margin-top:80px;padding-top:24px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:20px;
+  color:#d4d8e2;font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+}
+
+/* ---------- 05. FEATURE STRIP ---------- */
+.feature-strip{
+  background:var(--navy-2);border-bottom:1px solid var(--line);
+}
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.feature{
+  padding:30px 26px;border-right:1px solid var(--line);
+  display:flex;gap:18px;align-items:center
+}
+.feature:last-child{border-right:0}
+.feature-icon{font-family:var(--serif);font-size:29px;color:var(--gold)}
+.feature strong{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.feature span{display:block;color:#9ea6bb;font-size:11px;margin-top:4px}
+
+/* ---------- 06. PURPOSE ---------- */
+.light-section{background:var(--ivory);color:var(--navy); padding-top:70px;}
+.light-section .eyebrow{color:#866529}
+.light-section .eyebrow::before{background:#a67b32}
+.purpose-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:0;min-height:650px}
+.purpose-copy{padding:clamp(50px,7vw,100px) clamp(20px,7vw,100px) clamp(50px,7vw,100px) 0}
+.purpose-copy h2{font-size:clamp(48px,6vw,88px);margin-top:25px}
+.purpose-copy p{max-width:570px;margin-top:30px;color:#526078;font-size:16px}
+.purpose-media{position:relative;min-height:550px;overflow:hidden}
+.purpose-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.8)}
+.purpose-card{
+  position:absolute;left:28px;bottom:28px;
+  background:rgba(7,19,41,.92);color:white;
+  padding:28px;max-width:300px;
+}
+.purpose-card .display{font-size:42px}
+
+/* ---------- 07. PROCESS ---------- */
+.process{background:#0a1630}
+.process-head{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end}
+.process-head h2{font-size:clamp(50px,7vw,105px);margin-top: 30px;}
+.process-head p{color:#b7bfd0;max-width:500px}
+.process-grid{
+  margin-top:75px;display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);border-left:1px solid var(--line)
+}
+.process-item{padding:34px 28px 42px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:250px}
+.process-no{font-size:12px;color:var(--gold);letter-spacing:.2em}
+.process-item h3{font-family:var(--serif);font-size:30px;font-weight:400;margin-top:55px}
+.process-item p{color:#9ea8bd;font-size:13px;margin-top:12px}
+
+/* ---------- 08. CAPACITY ---------- */
+.capacity{background:#f0ece3;color:var(--navy)}
+.capacity-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:90px;align-items:center}
+.capacity h2{font-size:clamp(50px,7vw,100px);margin-top: 30px;}
+.capacity-text{color:#526078;max-width:520px;margin-top:25px}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--dark-line);border-bottom:1px solid var(--dark-line);margin-top:45px}
+.stat{padding:25px 20px;border-right:1px solid var(--dark-line)}
+.stat:last-child{border-right:0}
+.stat-number{font-family:var(--serif);font-size:clamp(38px,4vw,58px);color:#866529}
+.stat-label{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#59657a}
+
+/* ---------- 09. SERVICES ---------- */
+.services{background:var(--navy);color:white}
+.services-intro{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.services-intro h1{font-size:clamp(65px,9vw,135px)}
+.services-intro p{align-self:start;max-width:520px;color:#526078;margin-top: 125px;}
+.service-list{margin-top:80px;border-top:1px solid var(--line)}
+.service-row{
+  display:grid;grid-template-columns:90px 1fr 1.2fr 80px;
+  gap:25px;align-items:center;
+  padding:34px 0;border-bottom:1px solid var(--line);
+  transition:padding .4s var(--ease),background .4s ease;
+}
+.service-row:hover{padding-left:20px;padding-right:20px;background:rgba(255,255,255,.025)}
+.service-number{color:var(--gold);font-size:12px;letter-spacing:.2em}
+.service-row h2{font-family:var(--serif);font-size:clamp(30px,3vw,48px);font-weight:400}
+.service-row p{color:#aeb6c7;font-size:13px}
+.service-arrow{font-size:25px;color:var(--gold);text-align:right}
+
+/* ---------- 10. CONTACT ---------- */
+.contact{background:#f5f1e8;color:var(--navy)}
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:100px}
+.contact h1{font-size:clamp(60px,8vw,120px);margin:30px}
+.contact-lead{color:#59657a;max-width:470px;margin-top:25px}
+.contact-details{margin-top:55px;display:grid;gap:20px}
+.detail-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#8a6a30}
+.detail-value{font-size:15px;margin-top:4px}
+.form{
+  background:white;padding:clamp(28px,5vw,65px);
+  box-shadow:0 20px 80px rgba(7,19,41,.09)
+}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field{display:grid;gap:8px;margin-bottom:20px}
+.field.full{grid-column:1/-1}
+.field label{font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:#866529}
+.field input,.field textarea,.field select{
+  width:100%;border:0;border-bottom:1px solid #cbd0d8;
+  padding:14px 0;outline:0;background:transparent;color:var(--navy);
+}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:#9c722a}
+.form-note{font-size:11px;color:#778197;margin-top:15px}
+
+/* ---------- 11. FOOTER ---------- */
+footer{background:#040b18;color:#dfe3eb;padding:70px 0 25px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.footer-brand h2{font-family:var(--serif);font-weight:400;font-size:34px}
+.footer-brand p{max-width:350px;color:#8f98ab;margin-top:16px;font-size:13px}
+footer h3{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+footer ul{list-style:none;margin-top:16px;display:grid;gap:9px;color:#9da6b8;font-size:13px}
+.footer-bottom{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#6e7789;font-size:10px;letter-spacing:.12em}
+.footer-bottom a{
+  color:#aeb6c7;
+  text-decoration:none;
+  transition:color .3s ease;
+}
+
+.footer-bottom a:hover{
+  color:var(--gold);
+}
+/* ---------- 12. PAGE HERO ---------- */
+.page-hero{
+  min-height:65vh;display:flex;align-items:flex-end;
+  background:
+    linear-gradient(90deg,rgba(5,13,29,.95),rgba(5,13,29,.35)),
+    url("assets/hero.jpg") center/cover;
+    
+}
+.page-hero-inner{padding:180px 0 80px}
+.page-hero h1{
+  font-size:clamp(65px,9vw,135px);
+  max-width:1000px;
+  margin-top: 30px;
+}
+
+/* ---------- 13. MOBILE ---------- */
+@media(max-width:1050px){
+  .nav-links{gap:20px}
+  .nav-cta{display:none}
+  .hero-grid,.capacity-grid,.purpose-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-side{justify-self:start;margin-top:50px;width:min(100%,320px)}
+  .purpose-media{min-height:500px}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:780px){
+  .topbar {
+    display:none;
+  }
+  .container{width:min(calc(100% - 32px),var(--max))}
+  .topbar-links{display:none}
+  .topbar .container{justify-content:center}
+  .site-header{top:38px}
+  .nav{min-height:82px}
+  .brand-logo{width:50px;height:50px}
+  .brand-name{font-size:17px}
+  .brand-sub{font-size:7px}
+  .menu-btn{display:block}
+  .nav-links{
+    position:absolute;top:82px;left:16px;right:16px;
+    display:none;flex-direction:column;align-items:flex-start;gap:0;
+    padding:10px 22px;background:rgba(4,11,24,.98);border:1px solid var(--line)
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{width:100%;padding:15px 0}
+  .hero-media{
+    background-size:auto 100%;
+    background-position:center right;
+  }
+  .hero-inner{
+    width:min(calc(100% - 32px), 680px);
+    padding:145px 0 52px;
+  }
+  .hero h1{font-size:clamp(54px,14vw,82px);max-width:100%}
+  .hero-copy{font-size:15px}
+  .hero-bottom{margin-top:55px;display:block;line-height:2}
+  .feature-grid{grid-template-columns:1fr 1fr}
+  .feature{border-bottom:1px solid var(--line)}
+  .feature:nth-child(2){border-right:0}
+  .services-intro,.process-head{grid-template-columns:1fr}
+  .service-row{grid-template-columns:45px 1fr 35px}
+  .service-row p{grid-column:2}
+  .service-arrow{grid-column:3;grid-row:1}
+  .stat-grid{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--dark-line)}
+  .stat:last-child{border-bottom:0}
+  .form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-bottom{display:grid;gap:10px}
+}
+@media(max-width:480px){
+  .feature-grid{grid-template-columns:1fr}
+  .feature{border-right:0}
+  .footer-grid{grid-template-columns:1fr}
+  .hero-actions .button{width:100%}
+}
+
+@media(max-width:380px){
+  .hero-inner{width:calc(100% - 28px);padding-top:132px}
+  .hero h1{font-size:clamp(46px,13.5vw,66px)}
+  .hero-copy{font-size:14px;line-height:1.65}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-actions .button{width:100%;min-height:50px}
+}
