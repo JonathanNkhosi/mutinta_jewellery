@@ -121,7 +121,7 @@ button{cursor:pointer}
   background-image:
     linear-gradient(90deg,rgba(5,13,29,.96) 0%,rgba(7,16,36,.78) 33%,rgba(7,16,36,.12) 75%,rgba(7,16,36,.2)),
     linear-gradient(0deg,rgba(5,13,29,.65),transparent 45%),
-    url("assets/hero.webp");
+    url("assets/hero.png");
   /* Keep the source artwork visible instead of forcing an aggressive full-screen crop. */
   background-size:auto 100%;
   background-repeat:no-repeat;
@@ -297,7 +297,7 @@ footer ul{list-style:none;margin-top:16px;display:grid;gap:9px;color:#9da6b8;fon
   min-height:65vh;display:flex;align-items:flex-end;
   background:
     linear-gradient(90deg,rgba(5,13,29,.95),rgba(5,13,29,.35)),
-    url("assets/hero.jpg") center/cover;
+    url("assets/hero.png") center/cover;
     
 }
 .page-hero-inner{padding:180px 0 80px}
@@ -376,4 +376,73 @@ footer ul{list-style:none;margin-top:16px;display:grid;gap:9px;color:#9da6b8;fon
   .hero-copy{font-size:14px;line-height:1.65}
   .hero-actions{flex-direction:column;align-items:stretch}
   .hero-actions .button{width:100%;min-height:50px}
+}
+/* =========================================================
+   PAGE PRELOADER
+   ========================================================= */
+
+#preloader{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:#071329;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:opacity .8s ease, visibility .8s ease;
+}
+
+#preloader.loaded{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.loader-content{
+    width:min(420px,80%);
+    text-align:center;
+}
+
+.loader-logo{
+    width:72px;
+    height:72px;
+    object-fit:contain;
+    margin:0 auto 25px;
+}
+
+.loader-brand{
+    font-family:var(--serif);
+    font-size:25px;
+    letter-spacing:.22em;
+    color:var(--white);
+    margin-left:.22em;
+}
+
+.loader-line{
+    width:100%;
+    height:1px;
+    background:rgba(255,255,255,.18);
+    margin-top:38px;
+    overflow:hidden;
+}
+
+.loader-line span{
+    display:block;
+    width:0%;
+    height:100%;
+    background:var(--gold-soft);
+    transition:width .2s ease;
+}
+
+.loader-meta{
+    display:flex;
+    justify-content:space-between;
+    margin-top:12px;
+    font-size:9px;
+    letter-spacing:.2em;
+    color:#aeb6c7;
+}
+
+#loader-percent{
+    color:var(--gold-soft);
 }
