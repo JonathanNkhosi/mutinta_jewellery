@@ -362,6 +362,12 @@ footer ul{list-style:none;margin-top:16px;display:grid;gap:9px;color:#9da6b8;fon
   .field.full{grid-column:auto}
   .footer-grid{grid-template-columns:1fr 1fr}
   .footer-bottom{display:grid;gap:10px}
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+  .process-item {
+    min-width: 0;
+  }
 }
 @media(max-width:480px){
   .feature-grid{grid-template-columns:1fr}
