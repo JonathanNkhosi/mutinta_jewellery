@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `Name: ${name}\nEmail: ${email}\nPhone: ${form.querySelector("[name='phone']").value}\nEnquiry: ${form.querySelector("[name='enquiry']").value}\n\n${message}`
       );
 
-      window.location.href = `mailto:mutintajewellery@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:info@mutintajewellery.com?subject=${subject}&body=${body}`;
       status.textContent = "Preparing your email application…";
       status.style.color = "#6d5629";
     });
