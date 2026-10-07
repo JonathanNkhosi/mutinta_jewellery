@@ -11,7 +11,7 @@ Pages:
 - index.html
 - about.html
 - services.html
-- capabilities.html
+- gallary.html
 - contact.html
 
 Assets:
