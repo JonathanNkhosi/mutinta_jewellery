@@ -195,6 +195,7 @@ button{cursor:pointer}
 .light-section{background:var(--ivory);color:var(--navy); padding-top:70px;}
 .light-section .eyebrow{color:#866529}
 .light-section .eyebrow::before{background:#a67b32}
+.light-section .services-intro p{color:#526078}
 .purpose-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:0;min-height:650px}
 .purpose-copy{padding:clamp(50px,7vw,100px) clamp(20px,7vw,100px) clamp(50px,7vw,100px) 0}
 .purpose-copy h2{font-size:clamp(48px,6vw,88px);margin-top:25px}
